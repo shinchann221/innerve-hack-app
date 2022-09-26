@@ -16,9 +16,19 @@ class Auth {
 
   User? get user => _auth.currentUser;
 
-  Future<GoogleSignInAccount?> signInWithGoogle() async {
+  Future<User?> signInWithGoogle() async {
     try {
-      return await googleSignIn.signIn();
+      final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser!.authentication;
+
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        idToken: googleAuth.idToken,
+        accessToken: googleAuth.accessToken,
+      );
+      final UserCredential userCredential =
+          await _auth.signInWithCredential(credential);
+      return userCredential.user;
     } catch (error, stackTrace) {
       if (kDebugMode) {
         print(error);

@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'choose_type.dart';
-import 'sign_in.dart';
+import 'ui/choose_type.dart';
+import 'ui/sign_in.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/chooseType',
+      initialRoute: '/signIn',
       routes: {
         '/signIn': (context) => const SignIn(),
         '/chooseType': (context) => const ChooseType(),

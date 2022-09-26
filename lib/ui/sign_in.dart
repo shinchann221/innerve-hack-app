@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:innerve_hackathon/auth/google_sign_in.dart';
 
-import 'components/google_button.dart';
-import 'components/snack.dart';
+import '../components/google_button.dart';
+import '../components/snack.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
