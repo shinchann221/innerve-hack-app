@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "170170937263",
+    "project_id": "projects-bv",
+    "storage_bucket": "projects-bv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170170937263:android:1f475b5219dce04c4c495a",
+        "android_client_info": {
+          "package_name": "in.shinchann.innerve_hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "170170937263-vebp7rfbm4bsd1om8n0nij2rgf8e1kre.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.shinchann.innerve_hackathon",
+            "certificate_hash": "ecf3237366c03201ac5fcef2686c1899fe89f50e"
+          }
+        },
+        {
+          "client_id": "170170937263-6bkan1lk63pisibspu43b56v6fjjt7hu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbylRpQZRbLse01RIY7y2AnZOBfh4alIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "170170937263-6bkan1lk63pisibspu43b56v6fjjt7hu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
