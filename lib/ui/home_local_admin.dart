@@ -10,6 +10,6 @@ class HomeLocalAdmin extends StatefulWidget {
 class _HomeLocalAdminState extends State<HomeLocalAdmin> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold();
   }
 }
