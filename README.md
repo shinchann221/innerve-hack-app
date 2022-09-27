@@ -2,15 +2,10 @@
 
 Innerve Hackathon Submission Frontend Application
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project is submitted by team Variables.
+Key Features:
+- One tap calling to emergency contacts
+- Easy to access SOS button
+- 3 in 1 app for user, local admin and super admin (app dynamically updates based on options selected)
+- Video/Audio permissions taken at the start for ease of streaming
+- Google One tap sign in for easy access
