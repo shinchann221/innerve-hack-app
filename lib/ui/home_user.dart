@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../components/snack.dart';
+import '../global.dart';
 
 class HomeUser extends StatefulWidget {
   const HomeUser({Key? key}) : super(key: key);
@@ -14,7 +17,7 @@ class _HomeUserState extends State<HomeUser> {
   @override
   Widget build(BuildContext context) {
     Map<String, String> args =
-        ModalRoute.of(context)?.settings.arguments as Map<String, String>;
+        json.decode(Globals.storage?.getString('data') ?? '');
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(

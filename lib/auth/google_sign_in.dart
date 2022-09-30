@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../global.dart';
+
 class Auth {
   late FirebaseAuth _auth;
   late GoogleSignIn googleSignIn;
@@ -28,6 +30,7 @@ class Auth {
       );
       final UserCredential userCredential =
           await _auth.signInWithCredential(credential);
+      Globals.storage?.setBool('LoggedIn', true);
       return userCredential.user;
     } catch (error, stackTrace) {
       if (kDebugMode) {
@@ -38,6 +41,7 @@ class Auth {
   }
 
   Future<void> signOut() async {
+    Globals.storage?.setBool('LoggedIn', false);
     await googleSignIn.signOut();
   }
 }

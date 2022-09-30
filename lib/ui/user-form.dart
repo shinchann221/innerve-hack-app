@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:innerve_hackathon/components/snack.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+
+import '../components/snack.dart';
 import '../constants.dart';
+import '../global.dart';
 
 class UserForm extends StatefulWidget {
   const UserForm({Key? key}) : super(key: key);
@@ -371,18 +374,20 @@ class _UserFormState extends State<UserForm> {
                       phone14 == '') {
                     Snack.show(context, 'Please complete the form');
                   } else {
+                    Globals.storage?.setBool('first', false);
+                    Map<String, String> data = {
+                      'name1': name11,
+                      'name2': name12,
+                      'name3': name13,
+                      'name4': name14,
+                      'phone1': phone11,
+                      'phone2': phone12,
+                      'phone3': phone13,
+                      'phone4': phone14,
+                    };
+                    Globals.storage?.setString('data', json.encode(data));
                     Navigator.pushNamedAndRemoveUntil(
-                        context, '/home-user', (route) => false,
-                        arguments: {
-                          'name1': name11,
-                          'name2': name12,
-                          'name3': name13,
-                          'name4': name14,
-                          'phone1': phone11,
-                          'phone2': phone12,
-                          'phone3': phone13,
-                          'phone4': phone14,
-                        });
+                        context, '/home-user', (route) => false);
                   }
                 },
                 color: Colors.teal,

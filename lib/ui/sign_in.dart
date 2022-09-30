@@ -3,6 +3,7 @@ import 'package:innerve_hackathon/auth/google_sign_in.dart';
 
 import '../components/google_button.dart';
 import '../components/snack.dart';
+import '../global.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -32,12 +33,16 @@ class _SignInState extends State<SignIn> {
                     height: 200,
                     width: 200,
                     child: Image.network(
-                        'https://images-na.ssl-images-amazon.com/images/I/61o81imzZpL.png'),
+                      'https://images-na.ssl-images-amazon.com/images/I/61o81imzZpL.png',
+                    ),
                   ),
                   const Text(
                     'Women Safety',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700),
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   const SizedBox(
                     height: 100,
@@ -51,12 +56,38 @@ class _SignInState extends State<SignIn> {
                   ),
                   InkWell(
                     onTap: () {
+                      bool? first;
+                      int? type;
                       auth.signInWithGoogle().then(
                           (value) => {
                                 if (value != null)
                                   {
-                                    Navigator.pushNamedAndRemoveUntil(context,
-                                        '/chooseType', (route) => false)
+                                    first = Globals.storage?.getBool('first'),
+                                    if (first == true || first == null)
+                                      {
+                                        Navigator.pushNamedAndRemoveUntil(
+                                            context,
+                                            '/chooseType',
+                                            (route) => false)
+                                      }
+                                    else
+                                      {
+                                        type = Globals.storage?.getInt('type'),
+                                        if (type == 0)
+                                          {
+                                            Navigator.pushNamedAndRemoveUntil(
+                                                context,
+                                                '/home-user',
+                                                (route) => false)
+                                          }
+                                        else if (type == 1)
+                                          {
+                                            Navigator.pushNamedAndRemoveUntil(
+                                                context,
+                                                '/home-local',
+                                                (route) => false)
+                                          }
+                                      }
                                   }
                                 else
                                   {
@@ -65,7 +96,7 @@ class _SignInState extends State<SignIn> {
                                   }
                               },
                           onError: (error) =>
-                              {Snack.show(context, 'Error $error')});
+                              Snack.show(context, 'Error $error'));
                     },
                     child: const SignInButton(),
                   ),
@@ -77,8 +108,9 @@ class _SignInState extends State<SignIn> {
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                    textAlign: TextAlign.center,
-                    'This application is a part of Innerve Hacks 2022 (IGDTUW, Delhi) submission'),
+                  textAlign: TextAlign.center,
+                  'This application is a part of Innerve Hacks 2022 (IGDTUW, Delhi) submission',
+                ),
               ),
             )
           ],

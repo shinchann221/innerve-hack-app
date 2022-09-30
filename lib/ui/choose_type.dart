@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../components/choice_tile.dart';
+import '../global.dart';
 
 class ChooseType extends StatefulWidget {
   const ChooseType({Key? key}) : super(key: key);
@@ -34,7 +35,8 @@ class _ChooseTypeState extends State<ChooseType> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, '/home-user');
+                  Globals.storage?.setInt('type', 0);
+                  Navigator.pushNamed(context, '/user-form');
                 },
                 child: const ChoiceTile(
                   url:
@@ -47,6 +49,7 @@ class _ChooseTypeState extends State<ChooseType> {
               ),
               InkWell(
                 onTap: () {
+                  Globals.storage?.setInt('type', 1);
                   Navigator.pushNamed(context, '/home-local');
                 },
                 child: const ChoiceTile(
@@ -58,16 +61,6 @@ class _ChooseTypeState extends State<ChooseType> {
               const SizedBox(
                 height: 20,
               ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, '/home-super');
-                },
-                child: const ChoiceTile(
-                  url:
-                      'https://static.vecteezy.com/system/resources/thumbnails/000/290/610/small/10__2850_29.jpg',
-                  text: 'Super Admin',
-                ),
-              )
             ],
           ),
         ),
